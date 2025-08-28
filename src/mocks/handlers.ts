@@ -1,9 +1,9 @@
-import { http, HttpResponse } from "msw";
+import { http, HttpResponse, delay } from "msw";
 
 export const handlers = [
   // Absolute URL (browser may resolve this way)
-http.get("http://localhost:3000/mock-api/products", () => {
-    return HttpResponse.json([
+http.get("http://localhost:3000/mock-api/products", async () => {
+  return HttpResponse.json([
       {
         id: "ebb0f2f7-7bb2-4621-8668-66e10b66073f",
         name: "Printed Tee",

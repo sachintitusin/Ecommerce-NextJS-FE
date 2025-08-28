@@ -2,6 +2,7 @@
 
 import { useGetProductsQuery } from "@/features/products/api";
 import { ProductCard } from "@/features/products/components/ProductCard";
+import ProductCardSkeleton from "@/features/products/components/ProductCardSkeleton";
 
 export default function ProductsPage() {
   const { data, error, isLoading } = useGetProductsQuery();
@@ -12,12 +13,7 @@ export default function ProductsPage() {
         <h1 className="text-2xl font-bold mb-6">Our Products</h1>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {Array.from({ length: 8 }).map((_, i) => (
-                <div key={i} className="flex flex-col border rounded-lg shadow-sm p-4 animate-pulse bg-white">
-                    <div className="w-full aspect-square mb-3 bg-gray-200 rounded-md" />
-                    <div className="h-4 bg-gray-200 rounded mb-2" />
-                    <div className="h-4 bg-gray-200 rounded w-1/2" />
-                    <div className="mt-3 h-10 bg-gray-300 rounded-lg" />
-                </div>
+                <ProductCardSkeleton key={i}/>
             ))}
         </div>
         </main>
